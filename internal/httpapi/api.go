@@ -83,7 +83,7 @@ func (a *API) recommend(w http.ResponseWriter, r *http.Request) {
 	}
 	res, err := coupon.Recommend(ord)
 	if err != nil {
-		writeJSON(w, http.StatusOK, errResp(err))
+		writeJSON(w, http.StatusBadRequest, errResp(err))
 		return
 	}
 	writeJSON(w, http.StatusOK, res)
